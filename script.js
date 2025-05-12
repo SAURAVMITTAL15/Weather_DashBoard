@@ -23,3 +23,55 @@ const LOvalue = document.getElementById('LOvalue');
 
 const WEATHER_API_KEY = "62e08acdf74856601b9ba2ae1aa0e7a4";
 const WEATHER_DATA_FETCH = `https://api.openweathermap.org/data/2.5/weather?appid=${WEATHER_API_KEY}&q=`;
+
+// Create a logic for one location details Show
+const startProgramShow = userLocation.innerText = "Mathura"
+
+// Fetch Data For openweather map Api key  
+fetch(WEATHER_DATA_FETCH + startProgramShow)
+.then((response) => response.json())
+.then((data) => {
+    // create a weather according to location temperature using openweather api data
+    weatherIcon.style.background = `url(https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png)`
+    // Show Data to WebBrowser
+    temperature.innerHTML = data.main.temp;
+    feelsLike.innerHTML = "Feels like " + data.main.feels_like;
+    description.innerHTML = `<i class="fa-brands fa-cloudversify"></i> &nbsp;` +data.weather[0].description;
+    const options = {
+        weekday : "long",
+        month : "long",
+        day : "numeric",
+        hour : "numeric",
+        minute : "numeric",
+        hour12 : true,
+    }
+    date.innerHTML = getLongFormatDateTime(data.dt, data.timezone, options);;
+    city.innerHTML = `${data.name} ,${data.sys.country}`;   
+
+    
+    Hvalue.innerHTML = Math.round(data.main.humidity)+ "<span>%</span>";
+    Wvalue.innerHTML = Math.round(data.wind.speed)+ "<span>m/s</span>";
+    const options1 = {
+        hour : "numeric",
+        minute : "numeric",
+        hour12 : true,
+    };
+    SRvalue.innerHTML = getLongFormatDateTime(data.sys.sunrise, data.timezone, options1);
+    SSvalue.innerHTML = getLongFormatDateTime(data.sys.sunset, data.timezone, options1);;
+    TMIvalue.innerHTML = data.main.temp_min;
+    TMAvalue.innerHTML = data.main.temp_max;
+    Pvalue.innerHTML = data.main.pressure+ "<span>hPa</span>";
+    LAvalue.innerHTML = data.coord.lat;
+    LOvalue.innerHTML = data.coord.lon;
+});
+
+// Create a Function for date and time format
+function formatUnixTime(dtValue, offSet, options = {}) {
+    const formatDate = new Date((dtValue+offSet) *1000);
+    return formatDate.toLocaleTimeString([], {timeZone: "UTC", ...options});
+}
+
+// Create A function for read arguments and return FormatUnixtime Function 
+function getLongFormatDateTime(dtValue, offSet, options){
+    return formatUnixTime(dtValue, offSet, options)
+}
