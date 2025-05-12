@@ -20,3 +20,6 @@ const TMAvalue = document.getElementById('TMAvalue');
 const Pvalue = document.getElementById('Pvalue');
 const LAvalue = document.getElementById('LAvalue');
 const LOvalue = document.getElementById('LOvalue');
+
+const WEATHER_API_KEY = "62e08acdf74856601b9ba2ae1aa0e7a4";
+const WEATHER_DATA_FETCH = `https://api.openweathermap.org/data/2.5/weather?appid=${WEATHER_API_KEY}&q=`;
