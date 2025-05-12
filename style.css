@@ -57,7 +57,7 @@ body {
 .container .weather-input .weatherIcon{
     background-position: 50% !important;
     background-repeat: no-repeat !important;
-    background-size: cover;
+    background-size: contain;
     display: block;
     height: 25%;
     margin: 1.5rem auto;
@@ -125,4 +125,116 @@ body {
 
 .container .weather-output .highLight div p {
     font-size: 1.2rem
+}
+
+/* Add Media Query For Max-width 768 Px it is used for smart watches, Mobiles, Tablets  */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container .weather-input {
+        width: 100%;
+        position: relative;
+        /* margin-bottom: 2rem; */
+    }
+
+    .container .weather-input .weatherIcon {
+        margin: 1rem auto;
+        height: 100px;
+    }
+
+    .container .weather-input .temperature {
+        justify-content: center;
+    }
+
+    .container .weather-input .feelsLike,
+    .container .weather-input .description,
+    .container .weather-input .date,
+    .container .weather-input .city {
+        text-align: center;
+    }
+
+    .container .weather-output {
+        width: 100%;
+        position: relative;
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .container .weather-output .highLight {
+        grid-template-columns: 1fr; /* Stack highlight items vertically */
+    }
+}
+
+/* Add Media Query For Max-width 992 Px it is used for Laptops and Desktops  */
+@media screen and (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container .weather-input {
+        width: 100%;
+        position: relative;
+        /* margin-bottom: 2rem; */
+    }
+
+    .container .weather-input .weatherIcon {
+        margin: 1rem auto;
+        height: 100px;
+    }
+
+    .container .weather-input .temperature {
+        justify-content: center;
+    }
+
+    .container .weather-input .feelsLike,
+    .container .weather-input .description,
+    .container .weather-input .date,
+    .container .weather-input .city {
+        text-align: center;
+    }
+
+    .container .weather-output {
+        width: 100%;
+        position: relative;
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .container .weather-output .highLight {
+        grid-template-rows: 2fr; /* Stack highlight items vertically */
+    }
+}
+
+/* Add Media Query For Max-width 1200 Px it is used for Monitors and Desktops  */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .container .weather-input {
+        width: 30%; /* Slightly more space for input */
+        padding: 1rem 2rem;
+    }
+
+    .container .weather-output {
+        width: 70%;
+        margin-left: 30%;
+        padding: 1.5rem;
+    }
+
+    .container .weather-output .highLight {
+        grid-template-columns: repeat(2, 1fr); /* Simplify the column layout */
+        column-gap: 20px;
+        row-gap: 1rem;
+    }
+
+    .container .weather-output .highLight div {
+        height: 180px;
+    }
+
+    .weather-input .temperature {
+        font-size: 4rem; /* Slightly smaller font */
+    }
+
+    .container .weather-input .weatherIcon {
+        height: 20%;
+    }
 }
