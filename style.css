@@ -1,0 +1,128 @@
+/* Import A External Font */
+@import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+
+/* Add a Basic CSS of good practice */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tagesschrift';
+}
+
+/* Create a Body Height for Full Page*/
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+/* Input Section */
+.container .weather-input {
+    width: 25%;
+    position: fixed;
+    inset: 0;
+    background: hsl(204, 80%, 80%);
+    padding: 1rem 2.5rem;
+}
+
+.container .weather-input .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.container .weather-input .input-group input {
+    background: #ffffff;
+    text-transform: capitalize;
+    padding: 1rem;
+    font-size: 15px;
+    border-radius: 6px;
+    width: 100%;
+    outline: none;
+    border: 1px solid black;
+}
+
+.container .weather-input .input-group .fa-search {
+    position: absolute;
+    right: 15px;
+    color: hsl(204, 81%, 77%);
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.container .weather-input .weatherIcon{
+    background-position: 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    display: block;
+    height: 25%;
+    margin: 1.5rem auto;
+}
+
+.weather-input .temperature {
+    font-size: 5rem;
+    text-align: center;
+    display: flex;
+    font-weight: 350;
+}
+.weather-input .feelsLike, 
+.weather-input .description,
+.weather-input .date,
+.weather-input .city {
+    padding: 10px 0;
+    font-weight: 100;
+}
+
+/* Output Section */
+.container .weather-output {
+    width: 75%;
+    position: fixed;
+    inset: 0;
+    margin-left: 25%;
+    padding: 2rem;
+    background: #b4b0b0;
+    overflow: auto;
+}
+
+.container .weather-output h2{
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.container .weather-output .highLight {
+    display: grid;
+    grid-template-columns: repeat(2, 50fr);
+    grid-auto-flow: row;
+    row-gap: 1.5rem;
+    column-gap: 25px;
+}
+
+.container .weather-output .highLight div {
+    height: 200px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #89cefc;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.container .weather-output .highLight div i {
+    font-size: 50px;
+}
+
+.container .weather-output .highLight .sun span {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+} 
+
+.container .weather-output .highLight div p {
+    font-size: 1.2rem
+}
