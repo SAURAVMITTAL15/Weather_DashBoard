@@ -65,6 +65,47 @@ fetch(WEATHER_DATA_FETCH + startProgramShow)
     LOvalue.innerHTML = data.coord.lon;
 });
 
+// Create a Event Listner For Search Button And Use Search All Location Data
+searchButton.addEventListener('click', () => {
+    // Fetch Data For Locations
+    // create a weather according to location temperature using openweather api data
+    fetch(WEATHER_DATA_FETCH + userLocation.value)
+    .then((response) => response.json())
+    .then((data) => {
+        // Show Data For WebBrowser
+        weatherIcon.style.background = `url(https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png)`
+        temperature.innerHTML = data.main.temp;
+        feelsLike.innerHTML = "Feels like " + data.main.feels_like;
+        description.innerHTML = `<i class="fa-brands fa-cloudversify"></i> &nbsp;` +data.weather[0].description;
+        const options = {
+            weekday : "long",
+            month : "long",
+            day : "numeric",
+            hour : "numeric",
+            minute : "numeric",
+            hour12 : true,
+        }
+        date.innerHTML = getLongFormatDateTime(data.dt, data.timezone, options);;
+        city.innerHTML = `${data.name} ,${data.sys.country}`;
+
+
+        Hvalue.innerHTML = Math.round(data.main.humidity)+ "<span>%</span>";
+        Wvalue.innerHTML = Math.round(data.wind.speed)+ "<span>m/s</span>";
+        const options1 = {
+            hour : "numeric",
+            minute : "numeric",
+            hour12 : true,
+        };
+        SRvalue.innerHTML = getLongFormatDateTime(data.sys.sunrise, data.timezone, options1);
+        SSvalue.innerHTML = getLongFormatDateTime(data.sys.sunset, data.timezone, options1);;
+        TMIvalue.innerHTML = data.main.temp_min;
+        TMAvalue.innerHTML = data.main.temp_max;
+        Pvalue.innerHTML = data.main.pressure+ "<span>hPa</span>";
+        LAvalue.innerHTML = data.coord.lat;
+        LOvalue.innerHTML = data.coord.lon;
+    });    
+});
+
 // Create a Function for date and time format
 function formatUnixTime(dtValue, offSet, options = {}) {
     const formatDate = new Date((dtValue+offSet) *1000);
