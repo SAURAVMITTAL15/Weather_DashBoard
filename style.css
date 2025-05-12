@@ -207,7 +207,7 @@ body {
     }
 }
 
-/* Add Media Query For Max-width 1200 Px it is used for Monitors and Desktops  */
+/* Add Media Query For Min-width 992px to Max-width 1200Px it is used for Monitors and Desktops  */
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .container .weather-input {
         width: 30%; /* Slightly more space for input */
