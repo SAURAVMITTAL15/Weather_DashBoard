@@ -65,6 +65,7 @@ Contributions are welcome! To contribute:
 4. Push to the branch (git push origin feature/YourFeature).
 
 5. Open a pull request.
+   
 📧 Contact
 
 For any inquiries or feedback, please reach out to Saurav Mittal at mittalsaurav89@gmail.com.
